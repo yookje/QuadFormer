@@ -361,7 +361,7 @@ class PositionalEncoding_2D(nn.Module):
             
         # Compute the div_term once.
         div_term = 1 / torch.pow(
-            T, (2.0 * (torch.arange(self.d_model))) / torch.tensor(d_model*2)
+            T, (2.0 * (torch.arange(self.d_model))) / torch.tensor(d_model)
         )  # [batch_size, node_size, 128]
         self.register_buffer("div_term", div_term)
 
