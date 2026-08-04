@@ -356,13 +356,12 @@ class PositionalEncoding_2D(nn.Module):
         super(PositionalEncoding_2D, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
         
-        self.d_model = d_model
-        self.d_model = self.d_model //2 
-            
-        # Compute the div_term once.
-        div_term = 1 / torch.pow(
-            T, (2.0 * (torch.arange(self.d_model))) / torch.tensor(d_model)
-        )  # [batch_size, node_size, 128]
+        self.d_model = d_model //2
+        
+        
+        base = 1 / torch.pow(T, torch.arange(0, self.d_model, 2) / (self.d_model))
+        div_term = base.repeat_interleave(2)               
+        
         self.register_buffer("div_term", div_term)
 
     def forward(self, embeddings, graph):
