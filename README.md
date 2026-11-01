@@ -4,9 +4,9 @@ We propose QuadFormer, a Transformer-based solver for the Traveling Salesman Pro
 ![QuaDFormer Architecture](overview_of_QuadFormer.png)
 
 ## Paper
-- [[PDF]](quadformer_paper.pdf)
+- [[PDF]](QuadFormer_0826_final.pdf)
 
-- 
+
 ## Requirements
 
 - CUDA 12.1
